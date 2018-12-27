@@ -15,7 +15,7 @@ $(document).ready(function() {
     <div class='col-lg-4 text-center grcol'>
       <input type='number' name='weights[]' class='form-control' placeholder='40' min='0' max='100'>
     </div>
-  </div>`
+  </div>`;
 
   $("#addField").on('click', function(e) {
     e.preventDefault();
