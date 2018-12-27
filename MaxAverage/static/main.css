@@ -1,0 +1,22 @@
+body {
+	padding-top: 80px;
+}
+h1 {
+	padding-top: 30px;
+	padding-bottom: 20px;
+	font-size: 200%;
+	font-family: "Georgia", serif;
+	text-align: center;
+}
+.gradescont {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+.gradescont2 {
+	width: 50%;
+}
+.grcol {
+	padding-top: 5px;
+	padding-right: 30px;
+}
