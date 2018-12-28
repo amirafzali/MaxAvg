@@ -20,3 +20,9 @@ h1 {
 	padding-top: 5px;
 	padding-right: 30px;
 }
+.grcol2 {
+	padding-right: 30px;
+	padding-left: 5px;
+	display:flex;
+	vertical-align: bottom;
+}

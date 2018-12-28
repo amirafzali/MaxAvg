@@ -3,7 +3,7 @@
 {% block body %}
 {% include "calcc.html" %}
 
-<h1>McMaster MaxAverage</h1>
+<h1 xmlns:for="http://www.w3.org/1999/xhtml">McMaster MaxAverage</h1>
 <div class="container gradescont">
 	<div class="shadow-lg p-3 mb-5 bg-white rounded gradescont2">
 		<div class="row justify-content-center">
@@ -18,33 +18,62 @@
 			</div>
 		</div>
 		<form class="grsub" action="/" method="post">
-			<div class="row justify-content-center inputdata">
-				<div class="col-lg-4 text-center grcol">
-					<input type="text" class="form-control labelField" placeholder="Test 1">
-				</div>
-				<div class="col-lg-4 text-center grcol">
-					<div class="input-group mb-3">
-						<input type="number" name="grades[]" class="form-control gradeField" placeholder="100%" min="0" max="100" required>
-						<div class="input-group-append">
-							<span class="input-group-text" id="basic-addon2">%</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 text-center grcol">
-					<input type="number" name="weights[]" class="form-control weightField" placeholder="40" min="0" max="100" required>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4">
-					<a id="addField" href="">Add Another Grade</a>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-4 text-center grcol">
-					<input name="submit" id="submit" type="submit" value="Submit" >
-				</div>
-			</div>
-		</form>
+        <div class="row justify-content-center inputdata">
+            <div class="col-lg-4 text-center grcol">
+                <input type="text" class="form-control labelField" placeholder="Test 1">
+            </div>
+            <div class="col-lg-4 text-center grcol">
+                <div class="input-group mb-3">
+                    <input type="number" name="grades[]" class="form-control" placeholder="100" min="0" max="100" step="0.01" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center grcol">
+                <input type="number" name="weights[]" class="form-control" placeholder="40" min="0" max="100" step="0.01" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <a id="addField" href="">Add Another Grade</a>
+            </div>
+        </div>
+
+
+        <hr>
+        <div class="row justify-content-center">
+            <h3>Desired Mark</h3>
+		</div>
+
+
+        <div class="row justify-content-center">
+            <div class="col-lg-4 text-center gr-col2">
+                <div class="input-group mb-3">
+                    <input type="number" name="dgrade" class="form-control" placeholder="100" min="0" max="100" step="0.01" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1 text-center grcol2 form-inline">
+                <p class="grcol2">=</p>
+            </div>
+            <div class="col-lg-3 text-center grcol2 ">
+                <select name="gpaSelect" class="form-control gpaSelect" required></select>
+            </div>
+            <div class="col-lg-4 text-center grcol2">
+                <input type="number" name="dweight" class="form-control" placeholder="40" min="0" max="100" step="0.01" required>
+            </div>
+		</div>
+
+
+        <div class="row justify-content-center">
+            <div class="col-lg-4 text-center grcol">
+                <button class="btn btn-outline-success" name="submit" id="submit" type="submit" value="Submit">Calculate</button>
+            </div>
+        </div>
+        </form>
 	</div>
 </div>
 
