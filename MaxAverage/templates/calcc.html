@@ -1,10 +1,10 @@
 <script>
     $(document).ready(function () {
-        var newInput = `<div class='row justify-content-center inputdata'>
-      <div class='col-lg-4 text-center grcol'>
+        var newInput = `<div class='row justify-content-center inputdata newField'>
+      <div class='col-md-4 text-center grcol'>
         <input type='text' class='form-control' placeholder='Test 1'>
       </div>
-      <div class='col-lg-4 text-center grcol'>
+      <div class='col-md-4 text-center grcol'>
         <div class='input-group mb-3'>
           <input type='number' name='grades[]' class='form-control' placeholder='100' min='0' max='100' step="0.01" required>
           <div class='input-group-append'>
@@ -12,14 +12,33 @@
           </div>
         </div>
       </div>
-      <div class='col-lg-4 text-center grcol'>
+      <div class='col-md-4 text-center grcol'>
         <input type='number' name='weights[]' class='form-control' placeholder='40' min='0' max='100' step="0.01" required>
       </div>
     </div>`;
 
+        let letterGrades = {"A+ (12)":'12', "A (11)":'11', "A- (10)":'10', "B+ (9)":'9', "B (8)":'8', "B- (7)":'7', "C+ (6)":'6', "C (5)":'5', "C- (4)":'4', "D+ (3)":'3', "D (2)":'2', "D- (1)":'1', "F (0)":'0'};
+
+        for(var key in letterGrades) {
+            $("#gpaSelect").append(new Option(key, letterGrades[key]));
+        }
+
+        $("#gpaSelect").on('change', function (e) {
+            $("#dGrade").val(letterToPercent(this.value))
+        });
+
         $("#addField").on('click', function (e) {
             e.preventDefault();
             $(".inputdata").last().after(newInput);
+        });
+
+        $("#resetForm").on('click', function (e) {
+            e.preventDefault();
+            console.log("test");
+            $(".grsub").trigger("reset");
+            $(".newField").each(function () {
+                this.remove();
+            })
         });
 
         $(".grsub").on('submit', function (e) {
@@ -40,4 +59,35 @@
             });
         });
     });
+
+    function letterToPercent(grade) {
+        switch (parseInt(grade)) {
+            case 0:
+                return 49;
+            case 1:
+                return 50;
+            case 2:
+                return 53;
+            case 3:
+                return 57;
+            case 4:
+                return 60;
+            case 5:
+                return 63;
+            case 6:
+                return 67;
+            case 7:
+                return 70;
+            case 8:
+                return 73;
+            case 9:
+                return 77;
+            case 10:
+                return 80;
+            case 11:
+                return 85;
+            case 12:
+                return 90;
+        }
+    }
 </script>

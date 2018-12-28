@@ -21,8 +21,12 @@ h1 {
 	padding-right: 30px;
 }
 .grcol2 {
+	padding-top: 5px;
 	padding-right: 30px;
-	padding-left: 5px;
-	display:flex;
-	vertical-align: bottom;
+}
+.smallGrade {
+	width: 95%;
+}
+#submit {
+	margin-top: 5px;
 }

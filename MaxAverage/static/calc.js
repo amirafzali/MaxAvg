@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
   var newInput = `<div class='row justify-content-center inputdata'>
-    <div class='col-lg-4 text-center grcol'>
+    <div class='col-md-4 text-center grcol'>
       <input type='text' class='form-control' placeholder='Test 1'>
     </div>
-    <div class='col-lg-4 text-center grcol'>
+    <div class='col-md-4 text-center grcol'>
       <div class='input-group mb-3'>
         <input type='number' name='grades[]' class='form-control' placeholder='100%' min='0' max='100'>
         <div class='input-group-append'>
@@ -12,7 +12,7 @@ $(document).ready(function() {
         </div>
       </div>
     </div>
-    <div class='col-lg-4 text-center grcol'>
+    <div class='col-md-4 text-center grcol'>
       <input type='number' name='weights[]' class='form-control' placeholder='40' min='0' max='100'>
     </div>
   </div>`;
