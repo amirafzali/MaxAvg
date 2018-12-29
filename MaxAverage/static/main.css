@@ -19,10 +19,12 @@ h1 {
 .grcol {
 	padding-top: 5px;
 	padding-right: 30px;
+	display: block;
 }
 .grcol2 {
 	padding-top: 5px;
 	padding-right: 30px;
+	display: block;
 }
 .smallGrade {
 	width: 95%;

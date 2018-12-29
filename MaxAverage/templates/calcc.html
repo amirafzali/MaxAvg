@@ -23,11 +23,11 @@
             $("#gpaSelect").append(new Option(key, letterGrades[key]));
         }
 
-        $("#gpaSelect").on('change', function (e) {
+        $("#gpaSelect").on('change', function () {
             $("#dGrade").val(numberToPercent(this.value))
         });
 
-        $("#dGrade").on('change', function (e) {
+        $("#dGrade").on('change', function () {
             $("#gpaSelect").val(percentToNumber(this.value).toString())
         })
 
@@ -42,7 +42,8 @@
             $(".grsub").trigger("reset");
             $(".newField").each(function () {
                 this.remove();
-            })
+            });
+            $(".gradeResultCont").hide();
         });
 
         $(".grsub").on('submit', function (e) {
@@ -77,7 +78,7 @@
                 '<h4 class="gradeResultText">Your current average is: ' + currentAvg + "% " + "(" + percentToNumber(currentAvg) + ", " + percentToLetter(currentAvg) + ')</h4>' +
                 '</div>' +
                 '<div class="col-md-12 text-center">' +
-                '<h4 class="gradeResultText">Grade required on final: ' + requiredAvg + "% " + "(" + percentToNumber(requiredAvg) + ", " + percentToLetter(requiredAvg) + ')</h4>' +
+                '<h4 class="gradeResultText">Grade required on exam: ' + requiredAvg + "% " + "(" + percentToNumber(requiredAvg) + ", " + percentToLetter(requiredAvg) + ')</h4>' +
                 '</div>';
 
             $('.gradeResultCont').empty();
