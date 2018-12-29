@@ -24,11 +24,11 @@
         }
 
         $("#gpaSelect").on('change', function (e) {
-            $("#dGrade").val(letterToPercent(this.value))
+            $("#dGrade").val(numberToPercent(this.value))
         });
 
         $("#dGrade").on('change', function (e) {
-            $("#gpaSelect").val(gradeToLetter(this.value).toString())
+            $("#gpaSelect").val(percentToNumber(this.value).toString())
         })
 
         $("#addField").on('click', function (e) {
@@ -54,17 +54,38 @@
                 data: POSTdata,
                 dataType: 'text',
                 success: function (data) {
-                    console.log(POSTdata);
-                    return false;
+                    processData(data);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     console.log(errorThrown);
                 },
             });
         });
-    });
 
-    function letterToPercent(grade) {
+
+
+        function processData(data) {
+            data = JSON.parse(data);
+            var currentAvg = data['currAvg'];
+            var requiredAvg = data['reqAvg'];
+            console.log(currentAvg + " " + requiredAvg);
+            displayGradeResult(currentAvg, requiredAvg);
+        }
+        function displayGradeResult(currentAvg, requiredAvg) {
+            console.log("x");
+            var result = '<div class="col-md-12 text-center">' +
+                '<h4 class="gradeResultText">Your current average is: ' + currentAvg + "% " + "(" + percentToNumber(currentAvg) + ", " + percentToLetter(currentAvg) + ')</h4>' +
+                '</div>' +
+                '<div class="col-md-12 text-center">' +
+                '<h4 class="gradeResultText">Grade required on final: ' + requiredAvg + "% " + "(" + percentToNumber(requiredAvg) + ", " + percentToLetter(requiredAvg) + ')</h4>' +
+                '</div>';
+
+            $('.gradeResultCont').empty();
+            $('.gradeResultCont').show();
+            $('.gradeResultCont').append(result)
+        }
+    });
+    function numberToPercent(grade) {
         switch (parseInt(grade)) {
             case 0:
                 return 49;
@@ -94,7 +115,7 @@
                 return 90;
         }
     }
-    function gradeToLetter(grade) {
+    function percentToNumber(grade) {
         if(grade<50) {
             return 0;
         }
@@ -133,6 +154,47 @@
         }
         else {
             return 12;
+        }
+    }
+    function percentToLetter(grade) {
+        if(grade<50) {
+            return 'F';
+        }
+        else if(grade<53) {
+            return 'D-';
+        }
+        else if(grade<57) {
+            return 'D';
+        }
+        else if(grade<60) {
+            return 'D+';
+        }
+        else if(grade<63) {
+            return 'C-';
+        }
+        else if(grade<67) {
+            return 'C';
+        }
+        else if(grade<70) {
+            return 'C+';
+        }
+        else if(grade<73) {
+            return 'B-';
+        }
+        else if(grade<77) {
+            return 'B';
+        }
+        else if(grade<80) {
+            return 'B+';
+        }
+        else if(grade<85) {
+            return 'A-';
+        }
+        else if(grade<90) {
+            return 'A';
+        }
+        else {
+            return 'A+';
         }
     }
 </script>
